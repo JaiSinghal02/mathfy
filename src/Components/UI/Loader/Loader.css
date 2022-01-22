@@ -1,0 +1,12 @@
+.loader-container{
+    position: absolute;
+    top: 36%;
+    left: 40%;
+    font-size: 40px;
+    font-weight: 800;
+    height: 60px;
+    z-index: 2000;
+    color: rgb(255, 255, 255);
+    text-shadow: #000 0px 0px 1px,   #000 0px 0px 3px,   #000 0px 0px 3px,
+             #000 0px 0px 3px,   #000 0px 0px 3px,   #000 0px 0px 3px;
+  }

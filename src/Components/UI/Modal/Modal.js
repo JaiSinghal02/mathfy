@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import './Modal.css'
 import BackDrop from '../BackDrop/BackDrop'
 import Button from '../Button/Button'

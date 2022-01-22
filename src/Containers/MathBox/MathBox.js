@@ -13,6 +13,7 @@ import NumberBox from '../../Components/NumberBox/NumberBox'
 
 import Modal from '../../Components/UI/Modal/Modal'
 import InfoBar from '../../Components/UI/InfoBar/InfoBar'
+import Loader from '../../Components/UI/Loader/Loader'
 
 import validateEquation from '../../functions/validateEquation'
 import axios from 'axios'
@@ -23,6 +24,7 @@ export default function MathBox(){
     const [showModal,setShowModal] = useState(false)
     const [showError,setShowError] = useState(0)
     const [showResult,setShowResult] = useState(0)
+    const [showLoader,setShowLoader] = useState(0)
     const [result,setResult] = useState(null)
     // const [info,setInfo] = useState({message:'',color:'',time:0})
 
@@ -125,13 +127,18 @@ export default function MathBox(){
         setEquationList((list)=>{return [...list,number]})
         let equation =''
         updatedList.forEach(el=>equation+=el)
+        setShowLoader(1)
         axios.post('/getresult',{
             equation
         })
         .then(res=>{
             displayResult(res.data)
+            setShowLoader(0)
         })
-        .catch(err=>console.log(err))
+        .catch(err=>{
+            setShowLoader(0)
+            console.log(err)
+        })
         
     }
     return(
@@ -146,8 +153,9 @@ export default function MathBox(){
                 </div>
                 <EquationBox equationList={equationList} componentDropped={componentDropped} removeOperand={removeOperand}/>
             </div>
+            {showLoader?<Loader message="Fetching result..."/>:null}
             {showError===1?<InfoBar message={"Invalid move"} time={2000} color={"brown"}/>:null}
-            {showResult===1?<InfoBar message={`Result: ${result}`} time={3000} color={"blue"}/>:null}
+            {showResult===1?<InfoBar message={`Result: ${result}`} time={3500} color={"blue"}/>:null}
         </div>
     )
 }
