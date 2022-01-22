@@ -1,0 +1,16 @@
+.comparatorbox-container{
+    height: 100px;
+    width: 20%;
+    min-width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4d99d1;
+}
+.comparatorbox-div{
+    width: 90%;
+    padding-bottom: 10px;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}

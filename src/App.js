@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import './assets/fonts/fonts.css'
+import Layout from './Containers/Layout/Layout';
+import Header from './Components/Header/Header';
+import MathBox from './Containers/MathBox/MathBox';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://mathfy-backend.herokuapp.com'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Layout>
+        <Header/>
+        <MathBox/>
+      </Layout>
     </div>
   );
 }

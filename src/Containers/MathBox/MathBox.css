@@ -1,0 +1,38 @@
+.mathbox-container{
+    width: 100%;
+    height: 560px;
+}
+.mathbox-div{
+  margin-top: 50px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.mathbox-methodbox-container{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+    height: 5px;
+    top: -10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(233, 134, 131);
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(236, 53, 47); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(255, 17, 0); 
+    cursor: pointer;
+  }
