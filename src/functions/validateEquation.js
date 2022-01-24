@@ -15,7 +15,6 @@ const componentsOfEquation = function(equation){
 }
 const isLengthCorrect = function(equation,lhs,comparator){
     if(lhs.length%2===0) return false // equation length is correct if length is operandDragStarted
-    if((equation.length-1)!==equation.indexOf(comparator)) return false
     return true
 }
 const checkLHS = function(lhs){
@@ -34,6 +33,12 @@ const checkLHS = function(lhs){
     }
     return true
 }
+const checkRHS = function(rhs){
+    if(rhs==='') return true
+    const numberRhs = parseInt(rhs)
+    const stringRhs = numberRhs.toString()
+    return (stringRhs === rhs)
+}
 const validateEquation = function(equationArray){
     let equation=''
     equationArray.forEach(element=>equation+=element)
@@ -42,7 +47,7 @@ const validateEquation = function(equationArray){
         return checkLHS(lhs)
     }
     else{
-        return (checkLHS(lhs) && isLengthCorrect(equation,lhs,comparator))
+        return (checkLHS(lhs) && isLengthCorrect(equation,lhs,comparator) && checkRHS(rhs))
     }
 }
 export default validateEquation

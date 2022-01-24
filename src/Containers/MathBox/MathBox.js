@@ -119,7 +119,7 @@ export default function MathBox(){
     }
     const addNumber = (number)=>{
         setShowModal(false)
-        if(!validateEquation(equationList)) {
+        if(!validateEquation([...equationList,number])) {
             displayError()
             return
         }
